@@ -1,5 +1,6 @@
 package com.example.joggr;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -72,7 +73,8 @@ public class MainActivity extends FragmentActivity {
 	}
 	
 	private void _showMapLogging() {
-		Toast.makeText(this.getBaseContext(), "Showen map", Toast.LENGTH_SHORT).show();
+		Intent mapViewIntent = new Intent(this, MapViewActivity.class);
+		startActivity(mapViewIntent);
 	}
 	
 	private void _startPreviousRunListings() {
@@ -80,7 +82,8 @@ public class MainActivity extends FragmentActivity {
 	}
 	
 	private void _showSettings() {
-		Toast.makeText(this.getBaseContext(), "Showen thur settens", Toast.LENGTH_SHORT).show();
+		Intent settingsIntent = new Intent(this, SettingsViewActivity.class);
+		startActivity(settingsIntent);
 	}
 	
 }
