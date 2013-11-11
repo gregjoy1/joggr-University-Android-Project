@@ -23,32 +23,6 @@ public class MapViewActivity extends FragmentActivity {
 	private LocationListener _locationlistener;
 	private LocationManager _locationManager;
 		
-	private static final LatLng OXFORD_LAT_LONG = new LatLng(51.751944,-1.257778);
-	
-	private void _initMap()
-	{
-		if(this._map != null)
-		{
-			return;
-		}
-		else
-		{
-			this._map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.gmap)).getMap();
-			if(this._map == null)
-			{
-				Log.d("gmaps", "gmaps messed up...");
-				return;
-			}
-		}
-		
-		this._map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-		this._ui = this._map.getUiSettings();
-		this._ui.setMyLocationButtonEnabled(false);
-		this._ui.setZoomControlsEnabled(true);
-		this._map.moveCamera(CameraUpdateFactory.newLatLngZoom(OXFORD_LAT_LONG, 15));
-		this._map.animateCamera(CameraUpdateFactory.zoomTo(10), 5000, null);
-	}
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -102,6 +76,31 @@ public class MapViewActivity extends FragmentActivity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	private void _initMap()
+	{
+		if(this._map != null)
+		{
+			return;
+		}
+		else
+		{
+			this._map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.gmap)).getMap();
+			if(this._map == null)
+			{
+				Log.d("gmaps", "gmaps messed up...");
+				return;
+			}
+		}
+		
+		this._map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+		this._ui = this._map.getUiSettings();
+		this._ui.setMyLocationButtonEnabled(false);
+		this._ui.setZoomControlsEnabled(true);
+		// start off with oxford
+		this._map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(51.751944,-1.257778), 15));
+		this._map.animateCamera(CameraUpdateFactory.zoomTo(10), 5000, null);
 	}
 
 }

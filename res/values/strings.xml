@@ -8,5 +8,15 @@
     <string name="start_jogging">Start Jogging</string>
     <string name="previous_runs">Previous Runs</string>
     <string name="settings">Settings</string>
+    <string name="joggr_settings">joggr Settings</string>
+    <string name="username">Username</string>
+    <string name="logger_intervals">Logger intervals</string>
+    <string name="_5_seconds">5 seconds</string>
+    <string name="_10_seconds">10 seconds</string>
+    <string name="_30_seconds">30 seconds</string>
+    <string name="_60_seconds">60 seconds</string>
+    <string name="button">Button</string>
+    <string name="save">Save</string>
+    <string name="automatically_upload_to_server_after_run">Automatically upload to server after run</string>
 
 </resources>
