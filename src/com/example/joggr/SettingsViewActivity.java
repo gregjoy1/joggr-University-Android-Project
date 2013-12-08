@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 public class SettingsViewActivity extends Activity {
 
+	// declarations
 	private Settings _settingsModel;
 	
 	private TextView _usernameTextBox;
@@ -32,8 +33,9 @@ public class SettingsViewActivity extends Activity {
 
 		setContentView(R.layout.settings_view);
 
+		// loads the settings model
 		this._settingsModel = new Settings(this.getApplicationContext());
-		
+		// instantiates all the classes and attributes		
 		this._initUsernameTextView();
 		this._initRadioButtons();
 		this._initAutoUploadCheckBox();
@@ -42,11 +44,13 @@ public class SettingsViewActivity extends Activity {
 		Toast.makeText(this.getApplicationContext(), "Settings Loaded...", Toast.LENGTH_SHORT).show();
 	}
 	
+	// initialises username textview
 	private void _initUsernameTextView() {
 		this._usernameTextBox = (TextView) this.findViewById(R.id.usernameText);
 		this._usernameTextBox.setText(this._settingsModel.getUsername());
 	}
 	
+	// initialises logging interval radio buttons
 	private void _initRadioButtons() {
 		this._radioButtonInterval5 = (RadioButton) this.findViewById(R.id.radioInterval5);
 		this._radioButtonInterval10 = (RadioButton) this.findViewById(R.id.radioInterval10);
@@ -55,24 +59,28 @@ public class SettingsViewActivity extends Activity {
 		this._setLoggingIntervalToRadioButtons(this._settingsModel.getLoggingIncrements());
 	}
 	
+	// initialises auto upload checkbox
 	private void _initAutoUploadCheckBox() {
 		this._autoUploadCheckBox = (CheckBox) this.findViewById(R.id.uploadRunChk);
 		this._autoUploadCheckBox.setChecked(this._settingsModel.doesAppAutoUpload());
 	}
 	
+	// initialises save button
 	private void _initSaveButton() {
 		this._saveButton = (Button) this.findViewById(R.id.saveBtn);
 		this._saveButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
+				// populates settings model
 				_settingsModel.setUsername(_getUsernameFromTextField());
 				_settingsModel.setLoggingIncrements(_getLoggingIntervalFromRadioButtons());
 				_settingsModel.setIfAppAutoUploads(_getAutoUploadFromCheckBox());
+				// saves the model
 				_settingsModel.saveSettings();
 				
 				Toast.makeText(getApplicationContext(), "Settings Saved...", Toast.LENGTH_SHORT).show();
-				
+				// returns to menu
 				_returnToMainMenu();
 				
 			}
@@ -80,6 +88,7 @@ public class SettingsViewActivity extends Activity {
 		});
 	}
 	
+	// gets the value for which radio button is selected
 	private int _getLoggingIntervalFromRadioButtons() {
 		if(this._radioButtonInterval5.isChecked()) {
 			return 5;
@@ -94,6 +103,7 @@ public class SettingsViewActivity extends Activity {
 		}
 	}
 	
+	// auto selects the radio buttons to saved preference
 	private void _setLoggingIntervalToRadioButtons(int loggingInterval) {
 		switch(loggingInterval) {
 			case 5:

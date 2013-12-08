@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity {
 	
@@ -19,6 +18,7 @@ public class MainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.menu_view);
+		// create and initialise menu buttons
 		this._initMenuView();
 	}
 	
@@ -43,6 +43,8 @@ public class MainActivity extends FragmentActivity {
 	}
 	
 	private void _initMenuButtonListeners() {
+		
+		// Defines all the button listeners
 		this._startButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -72,18 +74,22 @@ public class MainActivity extends FragmentActivity {
 		
 	}
 	
+	// Starts the map logging activity
 	private void _showMapLogging() {
 		Intent mapViewIntent = new Intent(this, MapViewActivity.class);
 		startActivity(mapViewIntent);
 	}
 	
+	// Starts the previous run listing activity
 	private void _startPreviousRunListings() {
-		Toast.makeText(this.getBaseContext(), "Showen ma rans", Toast.LENGTH_SHORT).show();
+		Intent runListingIntent = new Intent(this, PreviousRunListing.class);
+		this.startActivity(runListingIntent);
 	}
 	
+	// Starts the settings activity
 	private void _showSettings() {
 		Intent settingsIntent = new Intent(this, SettingsViewActivity.class);
-		startActivity(settingsIntent);
+		this.startActivity(settingsIntent);
 	}
 	
 }

@@ -34,6 +34,7 @@ import android.widget.Toast;
 
 public class PreviousRunDetailActivity extends FragmentActivity {
 
+	// declarations
 	private Routes _routes;
 	
 	private GoogleMap _map;
@@ -53,26 +54,33 @@ public class PreviousRunDetailActivity extends FragmentActivity {
 		
 		this._routes = new Routes(this.getApplicationContext());
 
+		// finds and sets the routeinfo from intent "putextra messages"
 		this._setRouteInfo(this._findRouteInfoFromIntent());
+		
+		this._initMap();
+		
+		this._initAndPopulateTextViews(this._getRouteInfo());
 		
 	}
 	
+	// find the RouteInfo instance from the intent putextra message 
 	private RouteInfo _findRouteInfoFromIntent() {
 		
 		if(this.getIntent().getExtras() == null) {
 			return null;
 		} else {
-			return this._routes.getRouteByID(Long.parseLong((String) this.getIntent().getExtras().get("com.example.joggr.runID")));
+			return this._routes.getRouteByID(this.getIntent().getExtras().getLong("com.example.joggr.runID"));
 		}		
 	}
 	
+	// initialises and populates all the textviews
 	private void _initAndPopulateTextViews(RouteInfo routeInfo) {
 		this._initTextViews();
 		
-		this._timeTakenTextView.setText("");
-		this._averageSpeedTextView.setText("");
-		this._maximumSpeedTextView.setText("");
-		this._distanceRanTextView.setText("");
+		this._timeTakenTextView.setText(this._routeInfo.getTimeTakenInMinutes());
+		this._averageSpeedTextView.setText(this._routeInfo.getAverageSpeedInMps() + " meters per second");
+		this._maximumSpeedTextView.setText(this._routeInfo.getTopSpeedInMps() + " meters per second");
+		this._distanceRanTextView.setText(this._routeInfo.getDistanceTravelledInKM() + " kilometers");
 	}
 	
 	private void _initTextViews() {
@@ -82,6 +90,7 @@ public class PreviousRunDetailActivity extends FragmentActivity {
 		this._distanceRanTextView = (TextView) this.findViewById(R.id.distanceRanText);
 	}
 	
+	// initialises the map
 	private void _initMap()
 	{
 		if(this._map != null || this._getRouteInfo() == null)
@@ -93,7 +102,7 @@ public class PreviousRunDetailActivity extends FragmentActivity {
 			this._map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.gmapView)).getMap();
 			if(this._map == null)
 			{
-				Log.d("gmaps", "gmaps messed up...");
+				Log.d("JOGGR", "gmaps messed up...");
 				return;
 			}
 		}
@@ -103,11 +112,18 @@ public class PreviousRunDetailActivity extends FragmentActivity {
 		this._ui.setMyLocationButtonEnabled(false);
 		this._ui.setZoomControlsEnabled(true);
 
-		// start off with oxford
 		this._map.moveCamera(CameraUpdateFactory.newLatLngZoom(this._getRouteInfo().getLocations().get(0).getLocation(), 15));
-		this._map.animateCamera(CameraUpdateFactory.zoomTo(10), 5000, null);
+		this._map.animateCamera(CameraUpdateFactory.zoomTo(10), 500, null);
+
+		// adds all markers to map
+		for(int inc=0; inc<this._routeInfo.getAllMarkers().length; inc++) {
+			this._map.addMarker(this._routeInfo.getAllMarkers()[inc]);
+		}
 		
-		
+		// adds all polylines
+		for(int inc=0; inc<this._routeInfo.getAllPolylines().length; inc++) {
+			this._map.addPolyline(this._routeInfo.getAllPolylines()[inc]);
+		}
 		
 	}
 	

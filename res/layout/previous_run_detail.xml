@@ -14,8 +14,7 @@
 	        android:id="@+id/gmapView"
 	        android:name="com.google.android.gms.maps.SupportMapFragment"
 	        android:layout_width="match_parent"
-	        android:layout_height="0dp"
-	        android:layout_weight="1" />
+	        android:layout_height="250dp" />
 
 	    <TextView
 	        android:id="@+id/textView1"
@@ -29,95 +28,121 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
 	        android:layout_marginBottom="0dp"
-	        android:layout_marginLeft="15dp"
-	        android:layout_marginRight="15dp"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginRight="5dp"
 	        android:layout_marginTop="0dp"
 	        android:orientation="vertical" >
 
-	        <LinearLayout
+	        <TextView
+	            android:id="@+id/textView2"
 	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:orientation="horizontal" >
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:text="Time Taken:"
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-	            <TextView
-	                android:id="@+id/textView2"
-	                android:layout_width="match_parent"
-	                android:layout_height="match_parent"
-	                android:layout_weight="1"
-	                android:text="Time Taken:"
-	                android:textAppearance="?android:attr/textAppearanceMedium" />
-
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:layout_marginBottom="10dp"
+		        android:layout_marginLeft="10dp"
+		        android:layout_marginRight="10dp"
+		        android:layout_marginTop="0dp"
+		        android:orientation="vertical" >
+		        
 	            <TextView
 	                android:id="@+id/timeTakenText"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
+	                android:layout_weight="1"
 	                android:text="Time..."
 	                android:textAppearance="?android:attr/textAppearanceMedium" />
+
 	        </LinearLayout>
 
-	        <LinearLayout
+	        <TextView
+	            android:id="@+id/textView4"
 	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:orientation="horizontal" >
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:text="Average Speed:"
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-	            <TextView
-	                android:id="@+id/textView4"
-	                android:layout_width="match_parent"
-	                android:layout_height="match_parent"
-	                android:layout_weight="1"
-	                android:text="Average Speed:"
-	                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-	            <TextView
-	                android:id="@+id/averageSpeedText"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:text="aSpeed"
-	                android:textAppearance="?android:attr/textAppearanceMedium" />
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:layout_marginBottom="10dp"
+		        android:layout_marginLeft="10dp"
+		        android:layout_marginRight="10dp"
+		        android:layout_marginTop="0dp"
+		        android:orientation="vertical" >
+	        	        
+		        <TextView
+		            android:id="@+id/averageSpeedText"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:text="aSpeed"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
+		        
 	        </LinearLayout>
 
-	        <LinearLayout
+	        <TextView
+	            android:id="@+id/textView6"
 	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:orientation="horizontal" >
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:text="Maximum Speed:"
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-	            <TextView
-	                android:id="@+id/textView6"
-	                android:layout_width="match_parent"
-	                android:layout_height="match_parent"
-	                android:layout_weight="1"
-	                android:text="Maximum Speed:"
-	                android:textAppearance="?android:attr/textAppearanceMedium" />
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:layout_marginBottom="10dp"
+		        android:layout_marginLeft="10dp"
+		        android:layout_marginRight="10dp"
+		        android:layout_marginTop="0dp"
+		        android:orientation="vertical" >
+	        
+	        
+		        <TextView
+		            android:id="@+id/maxSpeedText"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:text="maxspeed"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-	            <TextView
-	                android:id="@+id/maxSpeedText"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:text="maxspeed"
-	                android:textAppearance="?android:attr/textAppearanceMedium" />
 	        </LinearLayout>
-
-	        <LinearLayout
+		        
+	        <TextView
+	            android:id="@+id/textView8"
 	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:orientation="horizontal" >
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:text="Distance Ran:"
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-	            <TextView
-	                android:id="@+id/textView8"
-	                android:layout_width="match_parent"
-	                android:layout_height="match_parent"
-	                android:layout_weight="1"
-	                android:text="Distance Ran:"
-	                android:textAppearance="?android:attr/textAppearanceMedium" />
+			<LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:layout_marginBottom="10dp"
+		        android:layout_marginLeft="10dp"
+		        android:layout_marginRight="10dp"
+		        android:layout_marginTop="0dp"
+		        android:orientation="vertical" >
+	        
+		        <TextView
+		            android:id="@+id/distanceRanText"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:text="distance"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-	            <TextView
-	                android:id="@+id/distanceRanText"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:text="distance"
-	                android:textAppearance="?android:attr/textAppearanceMedium" />
-	        </LinearLayout>
-	    </LinearLayout>
+        	    </LinearLayout>
+        	    
+			</LinearLayout>
 
 	    <RelativeLayout
 	        android:layout_width="match_parent"
