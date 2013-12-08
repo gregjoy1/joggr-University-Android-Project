@@ -25,7 +25,7 @@
 	        android:text="@string/username" />
 	
 	    <EditText
-	        android:id="@+id/editText1"
+	        android:id="@+id/usernameText"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:ems="10"
@@ -35,13 +35,13 @@
 	    </EditText>
 	
 	    <TextView
-	        android:id="@+id/textView3"
+	        android:id="@+id/timeTakenText"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_margin="5dp"
 	        android:text="@string/logger_intervals" />
 	    
-	    <RadioGroup android:id="@+id/radioGroup1" 
+	    <RadioGroup android:id="@+id/radioGroup" 
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content">
 	
