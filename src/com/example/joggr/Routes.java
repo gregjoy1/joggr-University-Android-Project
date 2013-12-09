@@ -65,7 +65,7 @@ public class Routes {
 					null, 
 					null, 
 					null, 
-					RouteDatabase.RouteNodeTableConstants.SORT + " ASC"
+					RouteDatabase.RouteNodeTableConstants.TIME + " ASC"
 				);
 		
 		// interates and instantiates each and every routenode and pushes it into RouteInfo
