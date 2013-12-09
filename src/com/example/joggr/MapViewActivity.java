@@ -316,7 +316,7 @@ public class MapViewActivity extends FragmentActivity {
 //		DEBUGGING ================================================================= 
 		
 		// Makes sure that there is a location to "push"
-		if(this._lastLocation != null && this._routeInfo.doesLocationAlreadyExist(this._lastLocation)) {
+		if(this._lastLocation != null && !this._routeInfo.doesLocationAlreadyExist(this._lastLocation)) {
 
 			// extracts long lat to instantiate a LatLng object
 			LatLng latitudeLongitude = new LatLng(this._lastLocation.getLatitude(), this._lastLocation.getLongitude());
